@@ -1,0 +1,57 @@
+Hello Person!
+
+//**Setting up your bot**//
+
+i see you have downloaded my basic bot file.
+
+First open your terminal (ctrl + `)
+then type npm i discord.js in it to download discord.js
+then u would need to download fs (we would be needing it to run the command and event handler)
+
+Then you will need to open the cofig folder and edit client.json
+in there you would need to add your token (dont show this to anyone) and the bot prefix
+
+remeber, your main file is index.js
+you can change your main file from package.json 
+note : you would also need to rename index.js to the name of the file you have changed the main file to
+
+you can also add more things like author, version of the bot, description about it, and the name of it
+
+and you are basically downloaded
+just run the bot tru terminal (ctrl + `)
+
+To run the bot :
+1) open terminal
+2) type node . or node index.js
+
+//**Making a custom command**//
+
+to make a custom command the first thing u would need to do is export the module so basically type 
+
+-----------------------------------
+module.exports = {}
+-----------------------------------
+
+now inside the {} you would whana give the name of the command, cooldown, description and the execute funtion with the parameters client, message, args ,Discord
+
+-----------------------------------
+module.exports = {
+    name: "test",
+    cooldown: 5,
+    description: "A test command",
+    execute(client, message, args ,Discord){
+
+    }
+-----------------------------------
+
+the thing is done now all u would need to do is add the code u wnt to run in the execute funtion
+
+-----------------------------------
+module.exports = {
+    name: "test",
+    cooldown: 5,
+    description: "A test command",
+    execute(client, message, args ,Discord){
+        message.channel.send('Test command works');
+    }
+-----------------------------------
