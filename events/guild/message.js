@@ -22,6 +22,8 @@ module.exports = (Discord, client, message) => {
 
 
     //cooldowns
+    if(!command) return ;
+    
 
      if(!cooldowns.has(command.name)){
          cooldowns.set(command.name, new Discord.Collection())
