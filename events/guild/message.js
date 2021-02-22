@@ -16,13 +16,12 @@ module.exports = (Discord, client, message) => {
 
     const args = message.content.slice(prefix.length).split(/ +/);
 
-    const cmd = args.shift().toLowerCase();
+   const cmd = args.shift().toLowerCase();
 
-    const command = client.commands.get(cmd);
+    const command = client.commands.get(cmd) || client.commands.find( a => a.aliases && a.aliases.includes(cmd))
 
 
     //cooldowns
-    if(!command) return ;
 
      if(!cooldowns.has(command.name)){
          cooldowns.set(command.name, new Discord.Collection())
@@ -46,11 +45,16 @@ module.exports = (Discord, client, message) => {
 
      setTimeout(() => time_stamps.delete(message.author.id), cooldown_amount);
 
-    try {
-
-  command.execute(client, message, args ,Discord);
-    }catch (err) {
-        console.log(err)
-        message.channel.send('there was an error')
+     try {
+        if (command) {
+            command.execute(client, message, args, Discord)
+        }
+        else {
+            return;
+        }
+    }
+    catch (err) {
+        console.log(err);
+        message.channel.send(`Error in \`${command.name}.js\`, for more information check console.\n` + "```js\n" + err.message + "```");
     }
     }
