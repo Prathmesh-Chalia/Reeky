@@ -1,5 +1,10 @@
 Hello Person!
 
+Reeky template bot
+Made by : Shawn
+Beta testers: Suzcat , prg , kegan , velocity
+Version : 1.0.1
+
 //**Setting up your bot**//
 
 i see you have downloaded my basic bot file.
@@ -50,8 +55,31 @@ the thing is done now all u would need to do is add the code u wnt to run in the
 module.exports = {
     name: "test",
     cooldown: 5,
+    aliases: ["t"],
     description: "A test command",
     execute(client, message, args ,Discord){
         message.channel.send('Test command works');
     }
 -----------------------------------
+
+
+//**Custom status**//
+To change the status of the bot you would need to edit status.json in the config folder
+first u gota add the content of the status, for example
+
+"name": ["youtube"]
+
+and then u gota change the type of the status
+a few valid types are 
+"WATCHING"
+"PLAYING"
+"COMPETING"
+"STREAMING"
+
+    "type": ["WATCHING"]
+
+after you have done this save and restart the bot and it should change the status every 30 seconds
+
+//**Error detection**//
+
+This feature sends an message in the channel if tere is something wrong with the custom commands that you made.
