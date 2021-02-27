@@ -2,7 +2,7 @@ Hello Person!
 
 Reeky template bot
 Made by : Shawn
-Beta testers: Suzcat , prg , kegan , velocity
+Beta testers: Suzcat , prg , kegan , velocity, calories
 Version : 1.0.1
 
 //**Setting up your bot**//
@@ -37,12 +37,14 @@ to make a custom command the first thing u would need to do is export the module
 module.exports = {}
 -----------------------------------
 
-now inside the {} you would whana give the name of the command, cooldown, description and the execute funtion with the parameters client, message, args ,Discord
+now inside the {} you would whana give the name of the command, cooldown, description, aliases, permisssions and the execute funtion with the parameters client, message, args ,Discord
 
 -----------------------------------
 module.exports = {
     name: "test",
     cooldown: 5,
+     aliases: ["t"],
+     permisssions: ["ADMINISTRATOR"],
     description: "A test command",
     execute(client, message, args ,Discord){
 
@@ -56,6 +58,7 @@ module.exports = {
     name: "test",
     cooldown: 5,
     aliases: ["t"],
+    permisssions: ["ADMINISTRATOR"],
     description: "A test command",
     execute(client, message, args ,Discord){
         message.channel.send('Test command works');
@@ -83,3 +86,47 @@ after you have done this save and restart the bot and it should change the statu
 //**Error detection**//
 
 This feature sends an message in the channel if tere is something wrong with the custom commands that you made.
+
+//**Permisssions**//
+
+the permissions param is used t detect weather a member has certain perms 
+
+permisssions: []
+
+add the name of the permssion u wnt to detect and if its more than one use , 
+
+permisssions: ["ADMINISTRATOR", "VIEW_AUDIT_LOG"]
+
+all the valid permisssions are:
+
+    "CREATE_INSTANT_INVITE",
+    "KICK_MEMBERS",
+    "BAN_MEMBERS",
+    "ADMINISTRATOR",
+    "MANAGE_CHANNELS",
+    "MANAGE_GUILD",
+    "ADD_REACTIONS",
+    "VIEW_AUDIT_LOG",
+    "PRIORITY_SPEAKER",
+    "STREAM",
+    "VIEW_CHANNEL",
+    "SEND_MESSAGES",
+    "SEND_TTS_MESSAGES",
+    "MANAGE_MESSAGES",
+    "EMBED_LINKS",
+    "ATTACH_FILES",
+    "READ_MESSAGE_HISTORY",
+    "MENTION_EVERYONE",
+    "USE_EXTERNAL_EMOJIS",
+    "VIEW_GUILD_INSIGHTS",
+    "CONNECT",
+    "SPEAK",
+    "MUTE_MEMBERS",
+    "DEAFEN_MEMBERS",
+    "MOVE_MEMBERS",
+    "USE_VAD",
+    "CHANGE_NICKNAME",
+    "MANAGE_NICKNAMES",
+    "MANAGE_ROLES",
+    "MANAGE_WEBHOOKS",
+    "MANAGE_EMOJIS",
